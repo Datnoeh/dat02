@@ -1,0 +1,20 @@
+name: Debug với tmate
+
+on:  
+  workflow_dispatch:  # Kích hoạt bằng tay trên GitHub
+
+jobs:
+  debug:
+    runs-on: ubuntu-latest  # Chạy trên Ubuntu
+
+    steps:
+      - name: Kiểm tra mã nguồn
+        uses: actions/checkout@v4
+
+      - name: Cài đặt tmate
+        run: sudo apt update && sudo apt install -y tmate
+
+      - name: Khởi động tmate session
+        run: |
+          tmate -F
+          
